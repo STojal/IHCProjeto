@@ -25,19 +25,21 @@ function ServicosPopulares() {
     ];
     const [show, setShow] = useState(false);
     const [servicoSelecionado, setServicoSelecionado] = useState(null);
+    const [servicosFiltrados, setServicosFiltrados] = useState([]);
 
     const handleClose = () => {
         setShow(false);
         setServicoSelecionado(null);
     };
-    var servicoesFilteres = [];
     const handleShow = (servico) => {
-        servicoesFilteres = Servicos.filter(
-            servicochosse => servicochosse.name && console.log(servicochosse.name.toLowerCase()))
-        console.log(Servicos)
+        const filtrados = Servicos.filter(s =>
+            s.name.toLowerCase().includes(servico.nome.toLowerCase())
+        );
+
+        setServicosFiltrados(filtrados);
         setServicoSelecionado(servico);
         setShow(true);
-    };
+    }
 
 
     const filterServicos = Servicos.filter(
@@ -50,6 +52,7 @@ function ServicosPopulares() {
 
     return (
         <>
+
             <div className='ContainerInfo'>
                 <h2>Bem-vindo ao WorkBond!</h2>
                 <form>
@@ -77,7 +80,6 @@ function ServicosPopulares() {
 
                 </form>
 
-
                 <div className="servicos-container" >
                     <h2>Serviços Populares</h2>
                     <div className="servicos-cards">
@@ -100,10 +102,15 @@ function ServicosPopulares() {
                                     <Modal.Title>{servicoSelecionado.nome}</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    <h6>Numero de funcionarios nesta categoria:</h6>
-                                    <p>{servicoesFilteres.length}</p>
+                                    <h6>Funcionários nesta categoria:</h6>
+                                    <p>{servicosFiltrados.length}</p>
 
-                                    <h6>Mais informação sobre: {servicoSelecionado.nome}</h6>
+                                    <h6>Mais informações:</h6>
+                                    <ul>
+                                        {servicosFiltrados.map((s, idx) => (
+                                            <li key={idx}>{s.name}</li>
+                                        ))}
+                                    </ul>
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={handleClose}>Fechar</Button>
