@@ -1,0 +1,142 @@
+[
+    {
+        "pessoa": "João Almeida",
+        "especialidade": "Canalização,Picheleiro",
+        "preco": "18€/h",
+        "avaliacao": 4.7,
+        "area": "Lisboa"
+    },
+    {
+        "pessoa": "Ana Martins",
+        "especialidade": "Limpeza",
+        "preco": "10€/h",
+        "avaliacao": 4.2,
+        "area": "Porto"
+    },
+    {
+        "pessoa": "Carlos Ribeiro",
+        "especialidade": "Eletricidade,Manutenção elétrica",
+        "preco": "20€/h",
+        "avaliacao": 4.8,
+        "area": "Coimbra"
+    },
+    {
+        "pessoa": "Marta Silva",
+        "especialidade": "Jardinagem",
+        "preco": "15€/h",
+        "avaliacao": 4.5,
+        "area": "Braga"
+    },
+    {
+        "pessoa": "Ricardo Lopes",
+        "especialidade": "Informática,Reparação de computadores",
+        "preco": "22€/h",
+        "avaliacao": 4.9,
+        "area": "Aveiro"
+    },
+    {
+        "pessoa": "Sara Ferreira",
+        "especialidade": "Pintor,exterior",
+        "preco": "17€/h",
+        "avaliacao": 4.1,
+        "area": "Faro"
+    },
+    {
+        "pessoa": "Tiago Sousa",
+        "especialidade": "Construção",
+        "preco": "25€/h",
+        "avaliacao": 4.6,
+        "area": "Setúbal"
+    },
+    {
+        "pessoa": "Patrícia Gomes",
+        "especialidade": "Limpeza,industrial",
+        "preco": "13€/h",
+        "avaliacao": 4.0,
+        "area": "Leiria"
+    },
+    {
+        "pessoa": "Daniel Costa",
+        "especialidade": "Carpintaria",
+        "preco": "19€/h",
+        "avaliacao": 4.3,
+        "area": "Guimarães"
+    },
+    {
+        "pessoa": "Vera Rocha",
+        "especialidade": "Mudanças",
+        "preco": "16€/h",
+        "avaliacao": 4.4,
+        "area": "Viseu"
+    },
+    {
+        "pessoa": "Bruno Teixeira",
+        "especialidade": "Canalização",
+        "preco": "18€/h",
+        "avaliacao": 3.9,
+        "area": "Évora"
+    },
+    {
+        "pessoa": "Andreia Nunes",
+        "especialidade": "Limpeza",
+        "preco": "11€/h",
+        "avaliacao": 4.2,
+        "area": "Beja"
+    },
+    {
+        "pessoa": "Fábio Matos",
+        "especialidade": "Informática",
+        "preco": "20€/h",
+        "avaliacao": 4.5,
+        "area": "Lisboa"
+    },
+    {
+        "pessoa": "Beatriz Moreira",
+        "especialidade": "Jardinagem",
+        "preco": "14€/h",
+        "avaliacao": 4.0,
+        "area": "Porto"
+    },
+    {
+        "pessoa": "Miguel Pires",
+        "especialidade": "Pintor",
+        "preco": "16€/h",
+        "avaliacao": 3.8,
+        "area": "Braga"
+    },
+    {
+        "pessoa": "Rita Carvalho",
+        "especialidade": "Eletricidade",
+        "preco": "21€/h",
+        "avaliacao": 4.6,
+        "area": "Aveiro"
+    },
+    {
+        "pessoa": "Hugo Batista",
+        "especialidade": "Construção",
+        "preco": "24€/h",
+        "avaliacao": 4.7,
+        "area": "Faro"
+    },
+    {
+        "pessoa": "Joana Lima",
+        "especialidade": "Canalização,Desentupimentos",
+        "preco": "19€/h",
+        "avaliacao": 4.3,
+        "area": "Viana do Castelo"
+    },
+    {
+        "pessoa": "Diogo Reis",
+        "especialidade": "Informática,Reparação de computadores",
+        "preco": "23€/h",
+        "avaliacao": 4.9,
+        "area": "Coimbra"
+    },
+    {
+        "pessoa": "Sofia Mendes",
+        "especialidade": "Limpeza,industrial",
+        "preco": "12€/h",
+        "avaliacao": 4.1,
+        "area": "Lisboa"
+    }
+]

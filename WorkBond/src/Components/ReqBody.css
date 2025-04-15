@@ -1,0 +1,478 @@
+.multi-step-container {
+    display: flex;
+    padding: 40px;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.steps-sidebar {
+    width: 20%;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
+    padding-right: 20px;
+    padding-top: 40px;
+}
+
+/* Cada step agora é relativo à sidebar */
+.step {
+    position: relative;
+    padding-left: 40px;
+}
+
+.step .circle:hover {
+    background: #004080;
+    color: #fff;
+    transition: color 0.3s ease;
+
+
+}
+
+.form-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 2px dashed #aaa;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    width: fit-content;
+    transition: background 0.2s ease;
+}
+
+.upload-button:hover {
+    background-color: #e0e0e0;
+}
+
+.upload-info {
+    font-size: 13px;
+    color: #666;
+}
+
+.step .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+
+    /* POSICIONAMENTO SOBRE A LINHA */
+    position: absolute;
+    left: 102.5%;
+    /* metade do width da bola (30px/2) */
+    top: 0;
+    z-index: 2;
+}
+
+.step.active .circle {
+    background: #004080;
+    color: #fff;
+}
+
+.buttonsJoin {
+    align-items: end;
+    margin-right: -5%;
+}
+
+.next-step {
+
+    align-items: center;
+    margin-top: auto;
+    width: 30%;
+    margin: 5px;
+    background: #004080;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.step-content {
+    flex: 1;
+    padding-left: 40px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.tabs {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.tabs button {
+    padding: 8px 20px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabs button:hover {
+    transition: color 0.3s ease;
+    border-color: #004080;
+    color: #004080;
+}
+
+.tabs button.active {
+    border-color: #004080;
+    color: #004080;
+}
+
+.form-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* <-- permite quebras de linha */
+}
+
+.form-group {
+    flex: 1 1 300px;
+    /* cresce mas nunca fica menor que 300px */
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.form-group.full {
+    flex: 1;
+}
+
+textarea,
+select {
+    margin-top: 8px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+small {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.auto-fill-note {
+    margin-top: 20px;
+    font-style: italic;
+    color: #555;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.navigation-buttons button {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.tabela-pedidos table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabela-pedidos th,
+.tabela-pedidos td {
+    padding: 10px 16px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tabela-pedidos thead {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+.tag {
+    background-color: #eee;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.price {
+    background-color: #fef2c0;
+    padding: 4px 8px;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.rating {
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.rating.good {
+    background-color: #e5f8e5;
+    color: #2e7d32;
+}
+
+.rating.bad {
+    background-color: #fdecea;
+    color: #c62828;
+}
+
+.area {
+    background-color: #e3f2fd;
+    padding: 4px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.status {
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status.success {
+    background-color: #e0f2f1;
+    color: #00695c;
+}
+
+.status.danger {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.status.warning {
+    background-color: #fff8e1;
+    color: #f57c00;
+}
+
+tfoot td {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .multi-step-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .steps-sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+        padding-top: 0;
+    }
+
+    .step-content {
+        padding: 20px 10px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .buttonsJoin {
+        justify-content: center;
+    }
+
+    .next-step {
+        width: 100%;
+    }
+
+    .multi-step-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .steps-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        padding: 20px 0;
+    }
+
+    .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    .step {
+        flex: 1 1 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-left: 0;
+        position: relative;
+    }
+
+    .step .circle {
+        position: static;
+        margin-bottom: 5px;
+    }
+
+    .buttonsJoin {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .next-step {
+        width: auto;
+        padding: 10px 20px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #f0f0f0;
+    }
+
+    .multi-step-container {
+        background-color: #1e1e1e;
+    }
+
+    .form-card,
+    .tabela-pedidos table {
+        background-color: #2a2a2a;
+        border-color: #444;
+    }
+
+    .steps-sidebar {
+        border-color: #333;
+    }
+
+    .step .circle {
+        background-color: #555;
+        color: white;
+    }
+
+    .step.active .circle {
+        background-color: #559fe9;
+        color: black;
+    }
+
+    .tabs button {
+        color: #ccc;
+    }
+
+    .tabs button.active,
+    .tabs button:hover {
+        color: #559fe9;
+        border-color: #559fe9;
+    }
+
+    select,
+    textarea,
+    input {
+        background-color: #2b2b2b;
+        color: #f0f0f0;
+        border-color: #666;
+    }
+
+    .upload-button {
+        background-color: #333;
+        border-color: #666;
+        color: #eee;
+    }
+
+    .upload-button:hover {
+        background-color: #444;
+    }
+
+    .tag,
+    .price,
+    .rating,
+    .area,
+    .status {
+        background-color: #333;
+        color: #eee;
+    }
+
+    .rating.good {
+        background-color: #264d26;
+        color: #a8e6a1;
+    }
+
+    .rating.bad {
+        background-color: #4d2626;
+        color: #f18f8f;
+    }
+
+    .status.success {
+        background-color: #1b3c3c;
+        color: #80cbc4;
+    }
+
+    .status.danger {
+        background-color: #4d2a2a;
+        color: #ef9a9a;
+    }
+
+    .status.warning {
+        background-color: #4d4226;
+        color: #ffd54f;
+    }
+
+    tfoot td {
+        background-color: #2a2a2a;
+    }
+
+    .next-step,
+    .navigation-buttons button {
+        background-color: #004080;
+        color: white;
+        border: none;
+    }
+
+    .navigation-buttons button {
+        background-color: #222;
+        border-color: #555;
+        color: #ddd;
+    }
+}

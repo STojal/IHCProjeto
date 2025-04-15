@@ -1,0 +1,171 @@
+/* Container geral */
+.ContainerInfo {
+    margin-top: 5%;
+}
+
+/* Secção de serviços */
+.servicos-container {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Título dos serviços */
+.servicos-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Botão de submissão com lupa */
+.BttSubmit {
+    background-color: #173757;
+    border: none;
+    color: white;
+    padding: 9px 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 15px;
+    cursor: pointer;
+    height: 45px;
+    transition: background-color 0.6s ease;
+}
+
+.BttSubmit:hover {
+    background-color: #559fe9;
+}
+
+.BttSubmit i {
+    margin: 0;
+}
+
+/* Título da navbar */
+.navbar-left {
+    color: white;
+    font-weight: bold;
+}
+
+/* Cartões dos serviços */
+.servicos-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Cartão individual */
+.servico-card {
+    display: flex;
+    align-items: center;
+    background-color: #ddd;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.servico-card img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.servico-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.servico-info a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+
+.servico-info a:hover {
+    color: black;
+}
+
+/* Barra de pesquisa + dropdown container */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    width: 100%;
+}
+
+/* Campo de pesquisa */
+.SearchBar {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 2px solid rgb(0, 0, 0);
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    background-color: #ffffff;
+    outline: none;
+    height: 45px;
+    font-weight: bold;
+    color: rgb(34, 165, 197);
+}
+
+/* Dropdown de sugestões */
+.dropdown-suggestions {
+    position: absolute;
+    top: 48px;
+    /* altura da barra de pesquisa */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 10px;
+    padding: 8px 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Lista de sugestões */
+.dropdown-suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-suggestions li {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #333;
+}
+
+
+
+.dropdown-suggestions li:hover {
+    background-color: #f0f8ff;
+    padding-left: 24px;
+    color: #004080;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.dropdown-suggestions li:last-child {
+    border-bottom: none;
+}

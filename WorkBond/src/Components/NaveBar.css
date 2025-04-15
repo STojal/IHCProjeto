@@ -1,0 +1,30 @@
+.navbar {
+    position: fixed;
+    /* Stick to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a87d4;
+    /* Dark blue background */
+    padding: 0 20px;
+    border-bottom: 2px solid #1E90FF;
+    /* Light blue bottom border */
+    z-index: 1000;
+}
+
+
+
+.navbar-right .nav-link {
+    margin-left: 20px;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-right .nav-link:hover {
+    color: white;
+}
