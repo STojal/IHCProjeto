@@ -1,321 +1,277 @@
-import './ReqBody.css'
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Especialistas from '../Data/Especialistas.json';
-
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Especialistas from '../Data/Especialistas.json'
 
 function ReqBody() {
     const [userStep, setUserStep] = useState(1)
-    const location = useLocation();
-    const navigate = useNavigate();
-    const nomeServico = location.state?.nomeServico;
+    const location = useLocation()
+    const navigate = useNavigate()
+    const nomeServico = location.state?.nomeServico
     const [name, setName] = useState('')
-    const [nameError, setNameError] = useState('');
-    const [morada, setMorada] = useState('');
-    const [moradaError, setMoradaError] = useState('');
-    const [contactoTipo, setContactoTipo] = useState('');
-    const [contactoValor, setContactoValor] = useState('');
-    const [contactoError, setContactoError] = useState('');
-    const [DescricaoError, setDescricaoError] = useState('');
-    const [descricao, setDescricao] = useState('');
+    const [nameError, setNameError] = useState('')
+    const [morada, setMorada] = useState('')
+    const [moradaError, setMoradaError] = useState('')
+    const [contactoTipo, setContactoTipo] = useState('')
+    const [contactoValor, setContactoValor] = useState('')
+    const [contactoError, setContactoError] = useState('')
+    const [DescricaoError, setDescricaoError] = useState('')
+    const [descricao, setDescricao] = useState('')
 
     useEffect(() => {
-        if (!nomeServico) {
-            navigate('/');
-        }
-    }, [nomeServico, navigate]);
+        if (!nomeServico) navigate('/')
+    }, [nomeServico, navigate])
 
     const filterEspecialistas = nomeServico
-        ? Especialistas.filter(
-            especialista =>
-                especialista.especialidade &&
-                especialista.especialidade.toLowerCase().includes(nomeServico.toLowerCase())
+        ? Especialistas.filter(e =>
+            e.especialidade?.toLowerCase().includes(nomeServico.toLowerCase())
         )
-        : [];
+        : []
+
     const handleSubmit = () => {
-        var error = false;
-        if (userStep == 1) {
+        let error = false
+        if (userStep === 1) {
             if (!name.trim()) {
-                setNameError('O nome é obrigatório');
-                error = true;
+                setNameError('O nome é obrigatório')
+                error = true
             }
             if (!morada) {
-                setMoradaError('A morada é obrigatória');
-                error = true;
+                setMoradaError('A morada é obrigatória')
+                error = true
             }
             if (!contactoTipo) {
-                setContactoError('O contacto é obrigatório');
-                error = true;
+                setContactoError('O contacto é obrigatório')
+                error = true
             }
-            if (contactoTipo === "telefone") {
-                const phoneRegex = /^[0-9]{9}$/;
+            if (contactoTipo === 'telefone') {
+                const phoneRegex = /^[0-9]{9}$/
                 if (!phoneRegex.test(contactoValor)) {
-                    setContactoError('Número de telefone inválido (deve ter 9 dígitos).');
-                    error = true;
+                    setContactoError('Número de telefone inválido.')
+                    error = true
                 }
-            } else if (contactoTipo === "email") {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            } else if (contactoTipo === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
                 if (!emailRegex.test(contactoValor)) {
-                    setContactoError('Email inválido.');
-                    error = true;
+                    setContactoError('Email inválido.')
+                    error = true
                 }
-
             }
-
         }
-        if (userStep == 2) {
+        if (userStep === 2) {
             if (!descricao) {
                 setDescricaoError('A descrição é obrigatória')
-                error = true;
+                error = true
             }
         }
-        if (!error) {
-            setUserStep(userStep + 1)
-
-        }
-
-
-
+        if (!error) setUserStep(userStep + 1)
     }
 
     return (
-        <div className="multi-step-container">
-            {/* Sidebar de passos */}
-            <aside className="steps-sidebar">
-                <div className="step active">
-
-                    <div>
-                        <strong>Step 1</strong>
-                        <p>Insert your info</p>
+        <div className="flex flex-col lg:flex-row min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white p-4">
+            <aside className="w-full lg:w-1/4 p-4 space-y-4">
+                {[1, 2, 3].map(step => (
+                    <div
+                        key={step}
+                        className={`flex justify-between items-center p-4 rounded-lg border ${userStep >= step
+                            ? 'bg-blue-600 text-white border-blue-600'
+                            : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600'
+                            }`}
+                    >
+                        <div>
+                            <strong>Step {step}</strong>
+                            <p className="text-sm">
+                                {step === 1 && 'Insert your info'}
+                                {step === 2 && `Problema ${nomeServico}`}
+                                {step === 3 && 'Procurar Profissional'}
+                            </p>
+                        </div>
+                        <span className="w-8 h-8 flex items-center justify-center rounded-full border bg-white text-black dark:text-black">
+                            {step}
+                        </span>
                     </div>
-                    <span className="circle">1</span>
+                ))}
+
+                <div className="flex gap-2 justify-between">
+                    {userStep > 1 && (
+                        <button
+                            onClick={() => setUserStep(userStep - 1)}
+                            className="px-4 py-2 bg-gray-300 dark:bg-gray-600 rounded hover:bg-gray-400 dark:hover:bg-gray-500"
+                        >
+                            ← Back
+                        </button>
+                    )}
+                    {userStep === 3 ? (
+                        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" onClick={() => navigate('/', {
+                            state: { alerta: 'Pedido submetido com sucesso!' },
+                        })}>
+                            Enviar
+                        </button>
+
+                    ) : (
+                        <button
+                            onClick={handleSubmit}
+                            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                        >
+                            Next →
+                        </button>
+                    )}
                 </div>
-                {userStep > 1 ? <div className="step active">
-
-                    <div>
-                        <strong>Step 2</strong>
-                        <p>Problema {nomeServico}</p>
-                    </div>
-                    <span className="circle">2</span>
-                </div> : <div className="step">
-
-                    <div>
-                        <strong>Step 2</strong>
-                        <p>Problema {nomeServico}</p>
-                    </div>
-                    <span className="circle">2</span>
-                </div>}
-                {userStep > 2 ? <div className="step active">
-
-                    <div>
-                        <strong>Step 3</strong>
-                        <p>Procurar Profissional</p>
-                    </div>
-                    <span className="circle">3</span>
-                </div> : <div className="step">
-
-                    <div>
-                        <strong>Step 3</strong>
-                        <p>Procurar Profissional</p>
-                    </div>
-                    <span className="circle">3</span>
-                </div>}
-                {userStep == 3 ? <div className='buttonsJoin'>
-                    <button onClick={() => { if (userStep > 1) setUserStep(userStep - 1) }}> → Back Step</button>
-                    <Link to='/'><button > → Submit</button></Link>
-
-                </div> : <div className='buttonsJoin'>
-
-                    <button onClick={() => { if (userStep > 1) setUserStep(userStep - 1) }}> → Back Step</button>
-                    <button onClick={(e) => handleSubmit()}> Next Step →</button>
-                </div>}
-
             </aside>
 
-            {/* Conteúdo central */}
-            <main className="step-content">
-                <h3>Complete the following fields</h3>
+            <main className="w-full lg:w-3/4 p-4">
+                <h3 className="text-2xl font-bold mb-4">Complete the following fields</h3>
 
-                {/* Tabs */}
-                {/* Caso 1  */}
-                {userStep == 1 && <><nav className="tabs">
-                    <button className="active">Personal Info</button>
-                    <button>Problem</button>
-                    <button>Procurar profissional</button>
+                <nav className="flex space-x-2 mb-4">
+                    <button className={`px-4 py-2 rounded ${userStep === 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700'}`}>Personal Info</button>
+                    <button className={`px-4 py-2 rounded ${userStep === 2 ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700'}`}>Problem</button>
+                    <button className={`px-4 py-2 rounded ${userStep === 3 ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700'}`}>Procurar Profissional</button>
                 </nav>
 
-                    {/* Formulário */}
-                    <section className="form-card">
-                        <div className="form-row">
-                            <div className="form-group">
-                                <label htmlFor="nome">Nome</label>
-                                <input id="nome" placeholder="Name" value={name} onChange={(e) => {
-                                    setName(e.target.value);
-                                    setNameError('');
-                                }} />
-                                {nameError && <small className="error">{nameError}</small>}
+                {userStep === 1 && (
+                    <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-sm font-medium">Nome</label>
+                                <input
+                                    className="w-full mt-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700"
+                                    value={name}
+                                    onChange={e => {
+                                        setName(e.target.value)
+                                        setNameError('')
+                                    }}
+                                />
+                                {nameError && <p className="text-red-500 text-sm">{nameError}</p>}
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="morada">Morada</label>
+                            <div>
+                                <label className="block text-sm font-medium">Morada</label>
                                 <select
+                                    className="w-full mt-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700"
                                     value={morada}
-                                    onChange={(e) => {
-                                        setMorada(e.target.value);
-                                        setMoradaError('');
+                                    onChange={e => {
+                                        setMorada(e.target.value)
+                                        setMoradaError('')
                                     }}
                                 >
-                                    <option value="" disabled>Select an option...</option>
+                                    <option value="" disabled>Seleciona...</option>
                                     <option value="lisboa">Lisboa</option>
                                     <option value="porto">Porto</option>
                                     <option value="coimbra">Coimbra</option>
                                 </select>
-                                {moradaError && <small className="error">{moradaError}</small>}
+                                {moradaError && <p className="text-red-500 text-sm">{moradaError}</p>}
                             </div>
                         </div>
 
-                        <div className="form-row">
-                            <div className="form-group">
-                                <label htmlFor="contacto-tipo">Tipo de Contacto</label>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-sm font-medium">Tipo de Contacto</label>
                                 <select
-                                    id="contacto-tipo"
+                                    className="w-full mt-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700"
                                     value={contactoTipo}
-                                    onChange={(e) => {
-                                        setContactoTipo(e.target.value);
-                                        setContactoValor('');
-                                        setContactoError('');
+                                    onChange={e => {
+                                        setContactoTipo(e.target.value)
+                                        setContactoValor('')
+                                        setContactoError('')
                                     }}
                                 >
-                                    <option value="" disabled>Seleciona uma opção...</option>
+                                    <option value="" disabled>Seleciona...</option>
                                     <option value="telefone">Telefone</option>
                                     <option value="email">Email</option>
                                 </select>
-                                {contactoError && !contactoValor && <small className="error">{contactoError}</small>}
                             </div>
-
                             {contactoTipo && (
-                                <div className="form-group">
-                                    <label htmlFor="contacto">{contactoTipo === 'telefone' ? 'Número de Telemóvel' : 'Email'}</label>
+                                <div>
+                                    <label className="block text-sm font-medium">{contactoTipo === 'telefone' ? 'Número de Telemóvel' : 'Email'}</label>
                                     <input
-                                        id="contacto"
                                         type={contactoTipo === 'email' ? 'email' : 'tel'}
-                                        placeholder={contactoTipo === 'email' ? 'exemplo@email.com' : '912345678'}
+                                        className="w-full mt-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700"
                                         value={contactoValor}
-                                        onChange={(e) => {
-                                            setContactoValor(e.target.value);
-                                            setContactoError('');
+                                        onChange={e => {
+                                            setContactoValor(e.target.value)
+                                            setContactoError('')
                                         }}
                                     />
-                                    {contactoError && <small className="error">{contactoError}</small>}
+                                    {contactoError && <p className="text-red-500 text-sm">{contactoError}</p>}
                                 </div>
                             )}
                         </div>
+                    </section>
+                )}
 
-
-                        <p className="auto-fill-note">
-                            Entra na conta: Preenche automaticamente com os dados
-                        </p>
-                    </section></>}
-                {/*Caso 2*/}
-                {userStep == 2 && <><nav className="tabs">
-                    <button >Personal Info</button>
-                    <button className="active">Problem</button>
-                    <button>Procurar profissional</button>
-                </nav>
-
-                    <section className="form-card">
-                        <h4>Problema </h4>
-                        <div className="form-row">
-                            <div className="form-group">
-                                <label htmlFor="descricao">Descrição</label>
-                                <textarea id="descricao" placeholder="Write a long text here..." value={descricao}
-                                    onChange={(e) => {
-                                        setDescricao(e.target.value);
-                                        setDescricaoError('');
-                                    }} />
-                                {DescricaoError && <small className="error">{DescricaoError}</small>}
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="disponibilidade">Disponibilidade</label>
-                                <select id="disponibilidade" defaultValue="">
-                                    <option value="" disabled>Select an option...</option>
-                                    <option value="manha">Manhã</option>
-                                    <option value="tarde">Tarde</option>
-                                    <option value="noite">Noite</option>
-                                </select>
-                                <small>Required</small>
-                            </div>
+                {userStep === 2 && (
+                    <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium">Descrição</label>
+                            <textarea
+                                className="w-full mt-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700"
+                                value={descricao}
+                                onChange={e => {
+                                    setDescricao(e.target.value)
+                                    setDescricaoError('')
+                                }}
+                            />
+                            {DescricaoError && <p className="text-red-500 text-sm">{DescricaoError}</p>}
                         </div>
-
-                        <div className="form-row">
-                            <div className="form-upload">
-                                <label htmlFor="file-upload" className="upload-button">
-                                    ⬇️ Upload Files
-                                </label>
-                                <input id="file-upload" type="file" style={{ display: 'none' }} />
-                                <p className="upload-info">Nothing selected.</p>
-                            </div>
+                        <div>
+                            <label className="block text-sm font-medium">Disponibilidade</label>
+                            <select className="w-full mt-1 p-2 rounded border dark:bg-gray-900 dark:border-gray-700" defaultValue="">
+                                <option value="" disabled>Seleciona...</option>
+                                <option value="manha">Manhã</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noite">Noite</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium mb-1">Upload de ficheiros</label>
+                            <input type="file" className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                         </div>
                     </section>
-                </>}
-                {/*Caso de uso3 */}
-                {userStep == 3 && <><nav className="tabs">
-                    <button >Personal Info</button>
-                    <button >Problem</button>
-                    <button className="active">Procurar profissional</button>
-                </nav>
-                    <section className="tabela-pedidos">
-                        <table>
-                            <thead>
+                )}
+
+                {userStep === 3 && (
+                    <section className="overflow-x-auto">
+                        <table className="min-w-full table-auto text-sm text-left mt-4 bg-white dark:bg-gray-800 shadow-md rounded overflow-hidden">
+                            <thead className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white">
                                 <tr>
-                                    <th>Pessoa</th>
-                                    <th>Especialidade</th>
-                                    <th>Preço</th>
-                                    <th>Avaliação</th>
-                                    <th>Área</th>
-                                    <th>Inf</th>
-                                    <th>Enviar pedido</th>
+                                    <th className="px-4 py-2">Pessoa</th>
+                                    <th className="px-4 py-2">Especialidade</th>
+                                    <th className="px-4 py-2">Preço</th>
+                                    <th className="px-4 py-2">Avaliação</th>
+                                    <th className="px-4 py-2">Área</th>
+                                    <th className="px-4 py-2">Inf</th>
+                                    <th className="px-4 py-2">Pedido</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {filterEspecialistas.map((especialista, index) => (
-                                    <tr key={index}>
-                                        <td>{especialista.pessoa}</td>
-                                        <td><span className="tag">{especialista.especialidade}</span></td>
-                                        <td><span className="price">{especialista.preco}</span></td>
-                                        {especialista.avaliacao < 3 ? <td><span className="rating bad">{especialista.avaliacao}</span></td> : <td><span className="rating good">{especialista.avaliacao}</span></td>}
-                                        <td><span className="area">{especialista.area}</span></td>
-                                        <td><span className="tag neutral">*</span></td>
-                                        <td>
-                                            <button className="send-button" title="Enviar pedido">
-                                                <i className="fab fa-telegram-plane"></i>
-                                            </button>
+                                {filterEspecialistas.map((esp, i) => (
+                                    <tr key={i} className="border-t dark:border-gray-700">
+                                        <td className="px-4 py-2">{esp.pessoa}</td>
+                                        <td className="px-4 py-2">{esp.especialidade}</td>
+                                        <td className="px-4 py-2">{esp.preco}€</td>
+                                        <td className={`px-4 py-2 ${esp.avaliacao < 3 ? 'text-red-500' : 'text-green-500'}`}>{esp.avaliacao}</td>
+                                        <td className="px-4 py-2">{esp.area}</td>
+                                        <td className="px-4 py-2">-</td>
+                                        <td className="px-4 py-2">
+                                            <button className="text-blue-600 hover:underline">📩</button>
                                         </td>
                                     </tr>
                                 ))}
-
-
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colSpan="6"><strong>Enviar para todos</strong></td>
-                                    <td>
-                                        <button className="send-button" title="Enviar pedido">
-                                            <i className="fab fa-telegram-plane"></i>
-                                        </button>
+                                <tr className="border-t dark:border-gray-700">
+                                    <td className="px-4 py-2">Todos</td>
+                                    <td className="px-4 py-2">{nomeServico}</td>
+                                    <td className="px-4 py-2"> €€€</td>
+                                    <td className={`px-4 py-2    'text-green-500'`}>.</td>
+                                    <td className="px-4 py-2">.</td>
+                                    <td className="px-4 py-2">.</td>
+                                    <td className="px-4 py-2">
+                                        <button className="text-blue-600 hover:underline">📩</button>
                                     </td>
                                 </tr>
-
-
-                            </tfoot>
+                            </tbody>
                         </table>
-                    </section></>}
-
-
-
+                    </section>
+                )}
             </main>
         </div>
-    );
-
-
+    )
 }
-export default ReqBody;
+
+export default ReqBody
