@@ -82,7 +82,7 @@ export function NaveBar() {
                             variant="gradient"
                             size="sm"
                         >
-                            <Link to="/">Sign in </Link>
+                            <Link to="/SignIn">Sign in </Link>
                         </button>
                         {/* Dark Mode Toggle */}
                         <button className="bg-white text-black dark:bg-gray-800 dark:text-white px-4 py-2 rounded"
@@ -138,7 +138,7 @@ export function NaveBar() {
                             <Link to="/Loggin">Log In</Link>
                         </button>
                         <button className="bg-white text-black dark:bg-gray-800 dark:text-white px-4 py-2 rounded">
-                            <Link to="/">Sign in</Link>
+                            <Link to="/SignIn">Sign in</Link>
                         </button>
                         <button className="bg-white text-black dark:bg-gray-800 dark:text-white px-4 py-2 rounded"
                             fullWidth

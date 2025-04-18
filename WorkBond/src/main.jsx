@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './Pages/App';
 import Request from './Pages/Request';
 import LogInPage from './Pages/LogInPage';
+import CreateAcounts from './Pages/CreateAcounts';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path='/Request' element={<Request></Request>} />
         <Route path='/Loggin' element={<LogInPage></LogInPage>} />
+        <Route path='/SignIn' element={<CreateAcounts></CreateAcounts>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
