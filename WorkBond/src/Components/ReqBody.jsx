@@ -16,6 +16,8 @@ function ReqBody() {
     const [contactoError, setContactoError] = useState('')
     const [DescricaoError, setDescricaoError] = useState('')
     const [descricao, setDescricao] = useState('')
+    const [selectedEspecialistas, setSelectedEspecialistas] = useState({});
+
 
     useEffect(() => {
         if (!nomeServico) navigate('/')
@@ -28,6 +30,7 @@ function ReqBody() {
         : []
 
     const handleSubmit = () => {
+        // formulario checking 
         let error = false
         if (userStep === 1) {
             if (!name.trim()) {
@@ -63,6 +66,38 @@ function ReqBody() {
             }
         }
         if (!error) setUserStep(userStep + 1)
+    }
+    const toggleEspecialista = (id) => {
+        // ativar e desativar especialistas
+        setSelectedEspecialistas((prev) => ({
+            ...prev,
+            [id]: !prev[id]
+        }));
+    };
+
+    const handleSend = () => {
+        console.log(typeof (selectedEspecialistas))
+        var t = selectedEspecialistas;
+        // vai por cada especialista selecionado e guarda na localStorage
+
+        Object.keys(selectedEspecialistas).forEach((esp) => {
+            if (selectedEspecialistas[esp])
+                localStorage.setItem(
+                    'Send' + esp,
+                    JSON.stringify({
+                        Id: esp,
+                        Name: name,
+                        Morada: morada,
+                        ContactTipo: contactoTipo,
+                        Contact: contactoValor,
+                        Descricao: descricao
+                    })
+                );
+        })
+        //navigate('/', {
+        //    state: { alerta: 'Pedido submetido com sucesso!' }
+        //});
+
     }
 
     return (
@@ -100,9 +135,7 @@ function ReqBody() {
                         </button>
                     )}
                     {userStep === 3 ? (
-                        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" onClick={() => navigate('/', {
-                            state: { alerta: 'Pedido submetido com sucesso!' },
-                        })}>
+                        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" onClick={(e) => handleSend()}>
                             Enviar
                         </button>
 
@@ -242,7 +275,7 @@ function ReqBody() {
                             </thead>
                             <tbody>
                                 {filterEspecialistas.map((esp, i) => (
-                                    <tr key={i} className="border-t dark:border-gray-700">
+                                    < tr key={i} className="border-t dark:border-gray-700" >
                                         <td className="px-4 py-2">{esp.pessoa}</td>
                                         <td className="px-4 py-2">{esp.especialidade}</td>
                                         <td className="px-4 py-2">{esp.preco}€</td>
@@ -250,7 +283,12 @@ function ReqBody() {
                                         <td className="px-4 py-2">{esp.area}</td>
                                         <td className="px-4 py-2">-</td>
                                         <td className="px-4 py-2">
-                                            <button className="text-blue-600 hover:underline">📩</button>
+                                            <button
+                                                className={`text-lg ${selectedEspecialistas[esp.id] ? 'text-green-600' : 'text-gray-400'} hover:scale-110 transition`}
+                                                onClick={() => toggleEspecialista(esp.id)}
+                                            >
+                                                {selectedEspecialistas[esp.id] ? '✅' : '❌'}
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
@@ -270,7 +308,7 @@ function ReqBody() {
                     </section>
                 )}
             </main>
-        </div>
+        </div >
     )
 }
 

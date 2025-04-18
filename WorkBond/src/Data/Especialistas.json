@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "pessoa": "João Almeida",
         "especialidade": "Canalização,Picheleiro",
         "preco": "18€/h",
@@ -7,6 +8,7 @@
         "area": "Lisboa"
     },
     {
+        "id": 2,
         "pessoa": "Ana Martins",
         "especialidade": "Limpeza",
         "preco": "10€/h",
@@ -14,6 +16,7 @@
         "area": "Porto"
     },
     {
+        "id": 3,
         "pessoa": "Carlos Ribeiro",
         "especialidade": "Eletricidade,Manutenção elétrica",
         "preco": "20€/h",
@@ -21,6 +24,7 @@
         "area": "Coimbra"
     },
     {
+        "id": 4,
         "pessoa": "Marta Silva",
         "especialidade": "Jardinagem",
         "preco": "15€/h",
@@ -28,6 +32,7 @@
         "area": "Braga"
     },
     {
+        "id": 5,
         "pessoa": "Ricardo Lopes",
         "especialidade": "Informática,Reparação de computadores",
         "preco": "22€/h",
@@ -35,6 +40,7 @@
         "area": "Aveiro"
     },
     {
+        "id": 6,
         "pessoa": "Sara Ferreira",
         "especialidade": "Pintor,exterior",
         "preco": "17€/h",
@@ -42,6 +48,7 @@
         "area": "Faro"
     },
     {
+        "id": 7,
         "pessoa": "Tiago Sousa",
         "especialidade": "Construção",
         "preco": "25€/h",
@@ -49,6 +56,7 @@
         "area": "Setúbal"
     },
     {
+        "id": 8,
         "pessoa": "Patrícia Gomes",
         "especialidade": "Limpeza,industrial",
         "preco": "13€/h",
@@ -56,6 +64,7 @@
         "area": "Leiria"
     },
     {
+        "id": 9,
         "pessoa": "Daniel Costa",
         "especialidade": "Carpintaria",
         "preco": "19€/h",
@@ -63,6 +72,7 @@
         "area": "Guimarães"
     },
     {
+        "id": 10,
         "pessoa": "Vera Rocha",
         "especialidade": "Mudanças",
         "preco": "16€/h",
@@ -70,6 +80,7 @@
         "area": "Viseu"
     },
     {
+        "id": 11,
         "pessoa": "Bruno Teixeira",
         "especialidade": "Canalização",
         "preco": "18€/h",
@@ -77,6 +88,7 @@
         "area": "Évora"
     },
     {
+        "id": 12,
         "pessoa": "Andreia Nunes",
         "especialidade": "Limpeza",
         "preco": "11€/h",
@@ -84,6 +96,7 @@
         "area": "Beja"
     },
     {
+        "id": 13,
         "pessoa": "Fábio Matos",
         "especialidade": "Informática",
         "preco": "20€/h",
@@ -91,6 +104,7 @@
         "area": "Lisboa"
     },
     {
+        "id": 14,
         "pessoa": "Beatriz Moreira",
         "especialidade": "Jardinagem",
         "preco": "14€/h",
@@ -98,6 +112,7 @@
         "area": "Porto"
     },
     {
+        "id": 15,
         "pessoa": "Miguel Pires",
         "especialidade": "Pintor",
         "preco": "16€/h",
@@ -105,6 +120,7 @@
         "area": "Braga"
     },
     {
+        "id": 16,
         "pessoa": "Rita Carvalho",
         "especialidade": "Eletricidade",
         "preco": "21€/h",
@@ -112,6 +128,7 @@
         "area": "Aveiro"
     },
     {
+        "id": 17,
         "pessoa": "Hugo Batista",
         "especialidade": "Construção",
         "preco": "24€/h",
@@ -119,6 +136,7 @@
         "area": "Faro"
     },
     {
+        "id": 18,
         "pessoa": "Joana Lima",
         "especialidade": "Canalização,Desentupimentos",
         "preco": "19€/h",
@@ -126,6 +144,7 @@
         "area": "Viana do Castelo"
     },
     {
+        "id": 19,
         "pessoa": "Diogo Reis",
         "especialidade": "Informática,Reparação de computadores",
         "preco": "23€/h",
@@ -133,10 +152,51 @@
         "area": "Coimbra"
     },
     {
+        "id": 20,
         "pessoa": "Sofia Mendes",
         "especialidade": "Limpeza,industrial",
         "preco": "12€/h",
         "avaliacao": 4.1,
         "area": "Lisboa"
+    },
+    {
+        "id": 21,
+        "pessoa": "Nuno Barros",
+        "especialidade": "Carpintaria,Marcenaria",
+        "preco": "21€/h",
+        "avaliacao": 4.4,
+        "area": "Guarda"
+    },
+    {
+        "id": 22,
+        "pessoa": "Helena Cruz",
+        "especialidade": "Pintor,interior",
+        "preco": "15€/h",
+        "avaliacao": 4.2,
+        "area": "Santarém"
+    },
+    {
+        "id": 23,
+        "pessoa": "Leonor Marques",
+        "especialidade": "Limpeza doméstica",
+        "preco": "10€/h",
+        "avaliacao": 4.6,
+        "area": "Lisboa"
+    },
+    {
+        "id": 24,
+        "pessoa": "Paulo Vieira",
+        "especialidade": "Canalização,Aquecimento",
+        "preco": "20€/h",
+        "avaliacao": 4.5,
+        "area": "Bragança"
+    },
+    {
+        "id": 25,
+        "pessoa": "Isabel Fonseca",
+        "especialidade": "Jardinagem,Paisagismo",
+        "preco": "18€/h",
+        "avaliacao": 4.7,
+        "area": "Castelo Branco"
     }
 ]
