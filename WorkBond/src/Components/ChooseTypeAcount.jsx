@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 export function ChooseTypeAcount() {
     return (
@@ -43,18 +44,18 @@ export function ChooseTypeAcount() {
                         <p className="text-gray-600 dark:text-gray-300 text-center mb-6">
                             Ofereça seus serviços e encontre clientes
                         </p>
-                        <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300 w-full">
+                        <Link className="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300 w-full" to='/SignIn/Esp'>
                             Criar conta como especialista
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
                 <div className="mt-8 text-center">
                     <p className="text-gray-600 dark:text-gray-300">
                         Já possui uma conta?{" "}
-                        <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                        <Link to='/Loggin' className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
                             Entrar
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>

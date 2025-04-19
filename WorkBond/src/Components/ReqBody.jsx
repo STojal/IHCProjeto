@@ -94,9 +94,9 @@ function ReqBody() {
                     })
                 );
         })
-        //navigate('/', {
-        //    state: { alerta: 'Pedido submetido com sucesso!' }
-        //});
+        navigate('/', {
+            state: { alerta: 'Pedido submetido com sucesso!' }
+        });
 
     }
 

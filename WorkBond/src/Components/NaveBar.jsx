@@ -141,7 +141,7 @@ export function NaveBar() {
                             <Link to="/SignIn">Sign in</Link>
                         </button>
                         <button className="bg-white text-black dark:bg-gray-800 dark:text-white px-4 py-2 rounded"
-                            fullWidth
+
                             size="sm"
                             variant="text"
                             onClick={() => setIsDark(!isDark)}
