@@ -63,9 +63,9 @@ export function LogIn() {
 
                     <p className="text-center text-sm text-gray-600 dark:text-gray-300">
                         Ainda não tens conta?{" "}
-                        <a href="#" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                        <Link to="/SignIn" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
                             Criar conta
-                        </a>
+                        </Link>
                     </p>
                 </form>
             </div>

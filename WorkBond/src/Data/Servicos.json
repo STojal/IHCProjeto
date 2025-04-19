@@ -27,21 +27,165 @@
         "name": "Carpintaria"
     },
     {
+        "name": "Design"
+    },
+    {
+        "name": "Marketing"
+    },
+    {
         "name": "Construção"
     },
     {
         "name": "Canalização,Desentupimentos"
     },
     {
-        "name": "Limpeza,industrial"
+        "name": "Limpeza,Industrial"
     },
     {
         "name": "Eletricidade,Manutenção elétrica"
     },
     {
-        "name": "Pintor,exterior"
+        "name": "Pintor,Exterior"
     },
     {
         "name": "Informática,Reparação de computadores"
+    },
+    {
+        "name": "Limpeza,Doméstica"
+    },
+    {
+        "name": "Canalização,Instalações"
+    },
+    {
+        "name": "Eletricidade,Instalação de quadros"
+    },
+    {
+        "name": "Pintor,Interior"
+    },
+    {
+        "name": "Jardinagem,Manutenção"
+    },
+    {
+        "name": "Jardinagem,Paisagismo"
+    },
+    {
+        "name": "Informática,Formatação"
+    },
+    {
+        "name": "Informática,Instalação de software"
+    },
+    {
+        "name": "Mudanças,Nacionais"
+    },
+    {
+        "name": "Mudanças,Internacionais"
+    },
+    {
+        "name": "Carpintaria,Móveis por medida"
+    },
+    {
+        "name": "Carpintaria,Portas e Janelas"
+    },
+    {
+        "name": "Construção,Obras gerais"
+    },
+    {
+        "name": "Construção,Reabilitação"
+    },
+    {
+        "name": "Limpeza,Pós-obra"
+    },
+    {
+        "name": "Limpeza,Vidros"
+    },
+    {
+        "name": "Pintor,Fachadas"
+    },
+    {
+        "name": "Eletricidade,Energia solar"
+    },
+    {
+        "name": "Eletricidade,Automação"
+    },
+    {
+        "name": "Informática,Redes"
+    },
+    {
+        "name": "Informática,Recuperação de dados"
+    },
+    {
+        "name": "Mudanças,Armazenamento"
+    },
+    {
+        "name": "Carpintaria,Pavimentos de madeira"
+    },
+    {
+        "name": "Construção,Telhados"
+    },
+    {
+        "name": "Construção,Paredes em pladur"
+    },
+    {
+        "name": "Jardinagem,Podas e cortes"
+    },
+    {
+        "name": "Canalização,Aquecimento central"
+    },
+    {
+        "name": "Eletricidade,Iluminação"
+    },
+    {
+        "name": "Informática,Consultoria técnica"
+    },
+    {
+        "name": "Limpeza,Sofás e estofos"
+    },
+    {
+        "name": "Limpeza,Carpetes"
+    },
+    {
+        "name": "Mudanças,Elevador exterior"
+    },
+    {
+        "name": "Carpintaria,Deck exterior"
+    },
+    {
+        "name": "Pintor,Pintura decorativa"
+    },
+    {
+        "name": "Construção,Reboco e acabamentos"
+    },
+    {
+        "name": "Jardinagem,Irrigação automática"
+    },
+    {
+        "name": "Informática,Servidores"
+    },
+    {
+        "name": "Canalização,Sistemas de rega"
+    },
+    {
+        "name": "Limpeza,Espaços comerciais"
+    },
+    {
+        "name": "Pintor,Remoção de tinta"
+    },
+    {
+        "name": "Design,Gráfico"
+    },
+    {
+        "name": "Design,Identidade Visual"
+    },
+    {
+        "name": "Design,Design Editorial"
+    },
+    {
+        "name": "Marketing,Digital"
+    },
+    {
+        "name": "Marketing,SEO"
+    },
+    {
+        "name": "Marketing,Gestão de Redes Sociais"
     }
 ]
